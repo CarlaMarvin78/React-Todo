@@ -1,5 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+
 
 class App extends React.Component {
   constructor () {
@@ -21,12 +23,20 @@ this.state={
     }
   ]
 } 
+this.addTodo = this.addTodo.bind(this);
  };
+addTodo (todo){
+  const newTodo={task:todo, id:Date.now(),completed:false};
+  this.setState({todoList:[...this.state.todoList, newTodo]});
+}
+
+
   render() {
     return (
       <div>
         <h2>To Do List!</h2>
         <TodoList todoList={this.state.todoList}/>
+        <TodoForm addTodo={this.addTodo}/>
       </div>
     );
   }

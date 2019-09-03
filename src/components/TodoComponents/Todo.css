@@ -1,0 +1,31 @@
+.completed {
+    text-decoration: line-through;
+    color:white;
+}
+
+input {
+    border:1px solid black;
+    
+}
+h1 {
+    font-family: "Georgia";
+    border-bottom:1px solid black;
+    width:160px;
+   }
+
+body {
+    background-color:cornflowerblue;
+
+}
+
+.todo {
+    margin:5px;
+    font-size:18px;
+}
+
+button {
+    margin-left:5px;
+   background-color:palevioletred;
+   
+}
+

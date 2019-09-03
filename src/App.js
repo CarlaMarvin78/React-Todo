@@ -29,14 +29,25 @@ addTodo (todo){
   const newTodo={task:todo, id:Date.now(),completed:false};
   this.setState({todoList:[...this.state.todoList, newTodo]});
 }
+clearCompleted = () => {
+  this.setState({todoList: this.state.todoList.filter(todo => !todo.completed)});
+}
 
+toggleCompleted = id => {
+  this.setState({todoList: this.state.todoList.map(todo => {
+    if (todo.id===id) { return {...todo, completed: !todo.completed}} else
+    { return todo; }
+  })
+});
+}
 
   render() {
     return (
       <div>
         <h2>To Do List!</h2>
-        <TodoList todoList={this.state.todoList}/>
-        <TodoForm addTodo={this.addTodo}/>
+        <TodoList todoList={this.state.todoList} toggleCompleted={this.toggleCompleted}/>
+        <TodoForm addTodo={this.addTodo} clearCompleted={this.clearCompleted}/>
+
       </div>
     );
   }

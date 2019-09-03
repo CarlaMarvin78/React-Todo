@@ -1,10 +1,18 @@
 import React from 'react';
+import './Todo.css';
 
-class Todo extends React.Component {
-
-    render (){
-        return (this.props.todo.task);
+const Todo = props => {
+    let classes = '';
+    if (props.todo.completed) {
+        classes = 'todo completed';
+    } else {
+        classes = 'todo';
     }
+    const onClick = () => {
+        props.toggleCompleted(props.todo.id);
+       // classes = 'todo completed';
+    }
+return (<div className={classes} onClick={onClick}>{props.todo.task}</div>)
 }
 
-export default Todo
+export default Todo;
